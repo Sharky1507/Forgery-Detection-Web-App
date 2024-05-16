@@ -1,26 +1,21 @@
 from flask import Flask, request, render_template, g, jsonify
-# Task 1: Import Libraries
 import os
 import cv2
 from skimage.metrics import structural_similarity as ssim
 import hashlib
 
 app = Flask(__name__)
-# Task 3a: Implement Image Upload Functionality
-# Configure the upload folder
 UPLOAD_FOLDER = "uploads"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-SSIM_THRESHOLD = 0.9
+SSIM_THRESHOLD = 0.9 # Feel Free to change this
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# Task 4b: Handle Upload Request to Backend
 @app.route('/upload',methods = ['POST'])
 def upload():
-    # Task 3b: Implement Image Upload Functionality
     if 'file1' in request.files and 'file2' in request.files:
         g.file1= request.files['file1']
         g.file2 = request.files['file2']
@@ -42,11 +37,9 @@ def upload():
     else:
         msg = "forgery found!"
     return jsonify({'message' : msg,'flag':flag})
-    # Task 7: Determine Forgery and Display Results
 
     return
 
-# Task 6a: Calculate MD5 Hash
 def calculate_hash(file_path):
     with open(file_path, "rb") as file:
         md5_hash = hashlib.md5()
@@ -54,7 +47,6 @@ def calculate_hash(file_path):
             md5_hash.update(chunk)
     return md5_hash.hexdigest()
 
-# Task 6b: Calculate MD5 Hash
 
 def cal_md5():
     file_path1 = os.path.join(UPLOAD_FOLDER,g.file1.filename)
@@ -65,7 +57,6 @@ def cal_md5():
         return True
     return False
 
-# Task 5: Calculate Similarity of Images
 def calculate_similarity():
     image1path = os.path.join(UPLOAD_FOLDER,g.file1.filename)
     image2path = os.path.join(UPLOAD_FOLDER,g.file2.filename)
