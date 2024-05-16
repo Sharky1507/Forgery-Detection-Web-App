@@ -1,0 +1,92 @@
+/* static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color:#007BFF;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.image-upload {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction:row;
+    gap: 10px;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+#upload-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#result-text {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.image-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-display img {
+    max-width: 300px; 
+    max-height: 300px; 
+    margin: 10px; 
+}
+
+.forge-indicator {
+/*    background-color: #ff1e00f7;*/
+    color: rgb(255, 0, 0);
+}
+
+.no-forgery{
+    color:rgb(0, 128, 0)
+}
