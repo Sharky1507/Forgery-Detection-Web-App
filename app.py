@@ -26,6 +26,7 @@ def upload():
 
 
     else:
+        
         return jsonify({'error': 'Upload Two Images for Similarity check'}),400
 
     flag = False
